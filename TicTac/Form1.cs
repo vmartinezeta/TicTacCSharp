@@ -9,13 +9,48 @@ namespace TicTac
     {
         private CuadriculaProxy _cuadriculaProxy;
         private Tablero _tablero;
+        private Timer _timer;
+        private Timer _timerLoading;
 
         public Form1()
         {
             InitializeComponent();
             _cuadriculaProxy = new CuadriculaProxy();
+            _timer = new Timer();
+            _timer.Interval = 1500;
+            _timer.Tick += TimerColocacionCPU;
+            _timerLoading = new Timer();
+            _timerLoading.Interval = 100;
+            _timerLoading.Tick += TimerLoading;
         }
 
+        
+        private void TimerLoading(object sender, EventArgs e) {             
+            lblText.Text += ".";
+            if (lblText.Text.Length > 10) {
+                lblText.Text = "Loading";
+            }
+        }
+
+        private void TimerColocacionCPU(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            _timerLoading.Stop();
+            lblText.Text = "";
+            _cuadriculaProxy.updateCpu();
+            _tablero = new Tablero(crearButton(), _cuadriculaProxy.Cuadricula);
+            notificar();
+            btnColocacionJugador.Text = _cuadriculaProxy.FichaEnJuego.Text;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            if (_timer == null) return;
+            _timer.Stop();
+            _timer.Dispose();
+        }
+    
         private List<Button> crearButton()
         {
             var buttonList = new List<Button>();
@@ -46,12 +81,13 @@ namespace TicTac
             _tablero = new Tablero(crearButton(), _cuadriculaProxy.Cuadricula);
             btnColocacionJugador.Text = _cuadriculaProxy.FichaEnJuego.Text;
             notificar();
-            if (_cuadriculaProxy.finalizoJuego()) return;
-            _cuadriculaProxy.updateCpu();
-            _tablero = new Tablero(crearButton(), _cuadriculaProxy.Cuadricula);
-            notificar();
             btnColocacionJugador.Text = _cuadriculaProxy.FichaEnJuego.Text;
-
+            if (_cuadriculaProxy.finalizoJuego()) return;
+            _timer.Enabled = true;
+            _timer.Start();
+            lblText.Text = "Loading";
+            _timerLoading.Enabled = true;
+            _timerLoading.Start();
         }
 
         private void notificar()

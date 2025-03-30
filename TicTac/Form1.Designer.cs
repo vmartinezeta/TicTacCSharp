@@ -39,6 +39,7 @@
             this.btnFicha7 = new System.Windows.Forms.Button();
             this.btnCancelacionJugador = new System.Windows.Forms.Button();
             this.btnColocacionJugador = new System.Windows.Forms.Button();
+            this.lblText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnFicha1
@@ -151,11 +152,20 @@
             this.btnColocacionJugador.UseVisualStyleBackColor = true;
             this.btnColocacionJugador.Click += new System.EventHandler(this.btnColocacionJugador_Click);
             // 
+            // lblText
+            // 
+            this.lblText.AutoSize = true;
+            this.lblText.Location = new System.Drawing.Point(137, 19);
+            this.lblText.Name = "lblText";
+            this.lblText.Size = new System.Drawing.Size(0, 13);
+            this.lblText.TabIndex = 12;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(325, 450);
+            this.Controls.Add(this.lblText);
             this.Controls.Add(this.btnCancelacionJugador);
             this.Controls.Add(this.btnColocacionJugador);
             this.Controls.Add(this.btnFicha9);
@@ -171,6 +181,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -187,6 +198,7 @@
         private System.Windows.Forms.Button btnFicha7;
         private System.Windows.Forms.Button btnCancelacionJugador;
         private System.Windows.Forms.Button btnColocacionJugador;
+        private System.Windows.Forms.Label lblText;
     }
 }
 
