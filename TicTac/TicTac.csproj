@@ -58,17 +58,16 @@
     <Compile Include="services\Linea.cs" />
     <Compile Include="services\IUpdateCelda.cs" />
     <Compile Include="services\Punto.cs" />
-    <Compile Include="services\Tablero.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Tablero.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Tablero.Designer.cs">
+      <DependentUpon>Tablero.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Tablero.resx">
+      <DependentUpon>Tablero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

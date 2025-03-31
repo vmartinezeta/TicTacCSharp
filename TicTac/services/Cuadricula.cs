@@ -13,7 +13,7 @@ namespace TicTac.services
             {
                 for (int j=0; j<3;j++)
                 {
-                    _celdas[i, j] = new Celda(new Ficha(4, "-"), new Punto(i, j));
+                    _celdas[i, j] = new Celda(new Ficha(4, ""), new Punto(i, j));
                 }
             }
         }

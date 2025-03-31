@@ -45,7 +45,7 @@ namespace TicTac.services
             } else {
                 var disponibles = Cuadricula.getDisponibles();
                 var random = new Random();
-                var idx = random.Next(disponibles.Count);
+                var idx = random.Next(0,disponibles.Count);
                 celda = disponibles[idx];
             }
             celda.Ficha = _fichaCpuEquis;
