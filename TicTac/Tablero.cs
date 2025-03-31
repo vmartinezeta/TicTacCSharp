@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Media;
 using System.Windows.Forms;
 using TicTac.services;
 
@@ -13,10 +15,12 @@ namespace TicTac
         private Button[, ] buttons;
         private Panel panel;
         private Label lblText;
+        private SoundPlayer player;
 
         public Tablero()
         {
             init();
+            iniciarMusicaFondo("fondo.wav");
             cuadricular();
             _cuadriculaProxy = new CuadriculaProxy();
             _cuadriculaProxy.updateCpu();
@@ -30,7 +34,7 @@ namespace TicTac
         }
 
         private void init ()
-        {
+        {            
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new Size(340, 360);
             this.Padding = new Padding(40);
@@ -43,6 +47,30 @@ namespace TicTac
             lblText.Font = new Font("Arial", 14);
             lblText.BringToFront();
             this.Controls.Add(lblText);
+
+        }
+
+
+        private void iniciarMusicaFondo(string nombreArchivo)
+        {
+            try
+            {
+                string rutaMusica = Path.Combine(Application.StartupPath, nombreArchivo);
+
+                if (File.Exists(rutaMusica))
+                {
+                    player = new SoundPlayer(rutaMusica);
+                    player.PlayLooping();
+                }
+                else
+                {
+                    MessageBox.Show($"¡Archivo de música no encontrado en:\n{rutaMusica}", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al cargar la música:\n{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cuadricular () {
@@ -171,6 +199,7 @@ namespace TicTac
             _timerLoading.Stop();
             _timer.Dispose();
             _timerLoading.Dispose();
+            player?.Stop();
         }
 
         private void pintar(Linea l)
@@ -197,9 +226,5 @@ namespace TicTac
             }
         }
 
-        private void Tablero_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

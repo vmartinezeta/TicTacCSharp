@@ -38,7 +38,6 @@
             this.Name = "Tablero";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Tablero_Load);
             this.ResumeLayout(false);
 
         }
