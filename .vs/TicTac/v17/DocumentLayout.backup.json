@@ -11,7 +11,7 @@
       "RelativeMoniker": "D:0:0:{C4A1B529-8661-40A4-83D6-6DB663BC5B13}|TicTac\\TicTac.csproj|solutionrelative:tictac\\services\\cuadricula.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C4A1B529-8661-40A4-83D6-6DB663BC5B13}|TicTac\\TicTac.csproj|c:\\users\\user\\source\\repos\\tictac\\tictac\\tablero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{C4A1B529-8661-40A4-83D6-6DB663BC5B13}|TicTac\\TicTac.csproj|C:\\Users\\User\\source\\repos\\TicTac\\tictac\\tablero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C4A1B529-8661-40A4-83D6-6DB663BC5B13}|TicTac\\TicTac.csproj|solutionrelative:tictac\\tablero.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -38,20 +38,19 @@
               "RelativeToolTip": "TicTac\\Tablero.Designer.cs",
               "ViewState": "AgIAACEAAAAAAAAAAAAYwCcAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T16:24:40.258Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T16:24:40.258Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Tablero.cs [Dise\u00F1o]",
+              "Title": "Tablero.cs [Design]",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs",
               "RelativeDocumentMoniker": "TicTac\\Tablero.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs [Dise\u00F1o]",
-              "RelativeToolTip": "TicTac\\Tablero.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs [Design]*",
+              "RelativeToolTip": "TicTac\\Tablero.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T14:38:38.261Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
@@ -63,8 +62,7 @@
               "RelativeToolTip": "TicTac\\services\\Cuadricula.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-31T14:35:28.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-31T14:35:28.155Z"
             },
             {
               "$type": "Document",
@@ -72,9 +70,9 @@
               "Title": "Tablero.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs",
               "RelativeDocumentMoniker": "TicTac\\Tablero.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs",
-              "RelativeToolTip": "TicTac\\Tablero.cs",
-              "ViewState": "AgIAAL4AAAAAAAAAAAAmwMAAAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\TicTac\\TicTac\\Tablero.cs*",
+              "RelativeToolTip": "TicTac\\Tablero.cs*",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAcwFcAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T17:57:19.872Z",
               "EditorCaption": ""

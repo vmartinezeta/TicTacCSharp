@@ -14,12 +14,13 @@ namespace TicTac
         private Timer _timerLoading;
         private Button[, ] buttons;
         private Panel panel;
+        private Panel panelTop;
         private Label lblText;
         private SoundPlayer player;
 
         public Tablero()
         {
-            init();
+            initComponents();
             iniciarMusicaFondo("fondo.wav");
             cuadricular();
             _cuadriculaProxy = new CuadriculaProxy();
@@ -33,23 +34,99 @@ namespace TicTac
             _timerLoading.Tick += TimerLoading;
         }
 
-        private void init ()
-        {            
+        private void initComponents()
+        {
+
+
+            var panelMain = new TableLayoutPanel
+            {
+                Dock = DockStyle.Fill, // Ocupa todo el formulario
+                ColumnCount = 1,      // Una sola columna
+                RowCount = 2,
+                CellBorderStyle = TableLayoutPanelCellBorderStyle.Single // Bordes opcionales
+            };
+
+            // Configuración de filas (alto proporcional o fijo)
+            panelMain.RowStyles.Add(new RowStyle(SizeType.AutoSize)); // Fila 1: 30%
+            //panelMain.RowStyles.Add(new RowStyle(SizeType.Percent, 40)); // Fila 2: 40%
+            panelMain.RowStyles.Add(new RowStyle(SizeType.AutoSize));
+            panelMain.Padding = new Padding(20);
+            this.Controls.Add(panelMain);
+
+
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new Size(340, 360);
-            this.Padding = new Padding(40);
-            panel = new Panel();
-            panel.Size = new Size(340, 360);
-            panel.Dock = DockStyle.Fill;
-            this.Controls.Add(panel);
+            this.Size = new Size(340, 400);
+
+            panelTop = new Panel();
+            panelMain.Controls.Add(panelTop);
+
             lblText = new Label();
             lblText.Text = "";
             lblText.Font = new Font("Arial", 14);
             lblText.BringToFront();
-            this.Controls.Add(lblText);
+            panelTop.Controls.Add(lblText);
+            panelTop.BackColor = Color.Orange;
+            panelTop.Height = 60;
+            panelTop.Padding = new Padding(5);
+            panelTop.Dock = DockStyle.Fill;
+                
 
+
+            // Crear el botón de toggle
+            Button btnToggleMusica = new Button
+            {
+                Text = "🔊", // Icono de altavoz (puedes usar imágenes)
+                Width = 40,   // Ancho pequeño
+                Height = 40,  // Alto pequeño
+                FlatStyle = FlatStyle.Flat, // Estilo plano
+                BackColor = Color.Transparent,
+                Cursor = Cursors.Hand // Cambia el cursor al pasar el mouse
+            };
+
+            // Posicionar en la esquina superior derecha del Panel
+            btnToggleMusica.Location = new Point(
+                panelTop.Width - btnToggleMusica.Width - 5, // X: derecha con margen 5
+                5// Y: margen superior 5
+            );
+
+            // Anchura para que se mantenga en su lugar al redimensionar
+            btnToggleMusica.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+
+            // Evento Click para toggle
+            btnToggleMusica.Click += btnToggleMusica_Click;
+
+            // Agregar al Panel
+            panelTop.Controls.Add(btnToggleMusica);
+
+            // Traer al frente (sobre otros controles)
+            btnToggleMusica.BringToFront();
+
+
+            panel = new Panel();
+            panel.BackColor = Color.AliceBlue;
+            panel.Dock = DockStyle.Fill;
+            panelMain.Controls.Add(panel);
         }
 
+        private void btnToggleMusica_Click(object sender, EventArgs e)
+        {
+            if (player != null)
+            {
+                Button btn = (Button)sender;
+                if (btn.Text == "🔊") // Si está sonando
+                {
+                    player.Stop();
+                    btn.Text = "🔈"; // Cambia a icono de silencio
+                    btn.BackColor = Color.LightGray; // Feedback visual
+                }
+                else
+                {
+                    player.PlayLooping();
+                    btn.Text = "🔊";
+                    btn.BackColor = Color.Transparent;
+                }
+            }
+        }
 
         private void iniciarMusicaFondo(string nombreArchivo)
         {
@@ -146,7 +223,7 @@ namespace TicTac
             lblText.Text = "Loading";
         }
 
-       private void habilitarDisponibles()
+        private void habilitarDisponibles()
         {
             foreach (var celda in _cuadriculaProxy.Cuadricula.getDisponibles())
             {
